@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.3"
+  "info": {
+    "title": "Random Fact",
+    "description": "Just test API for pet project 'Random_Fact'",
+    "termsOfService": "https://swagger.io/specification/",
+    "contact": {
+      "name": "Igor Belkin",
+      "url": "https://vk.com/id442838374",
+      "email": "shutikhin.igor@yandex.ru"
+    },
+    "license": {
+      "name": "openapi_license",
+      "url": "https://swagger.io/specification/"
+    },
+    "version": "0.0.1 Betta"
+  }
+  #"servers": (server object)
+  "paths": {
+    "/fact{factId}": {
+      "get": {
+        "tags": [
+          "tag1"
+        ],
+        "summary": "GET fact",
+        "description": "Returns a fact",
+        #externalDocs: (object),
+        "operationId": "getfact",
+        "parameters": [ {
+          "name": "factId",
+          "in": "path",
+          "description": "parametre in path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        } ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ok"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  "components": {
+    "schemas": {
+      "Ok": {
+        "type": "object",
+        "properties": {
+          "factId": {
+            "description": "ID of fact",
+            "type": "integer"
+          },
+          "factNumber": {
+            "description": "Number",
+            "type": "integer"
+          },
+          "factType": {
+            "description": "Type",
+            "type": "string"
+          },
+          "fact": {
+            "description": "Text of fact",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+
+}
