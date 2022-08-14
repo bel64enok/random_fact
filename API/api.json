@@ -20,12 +20,12 @@
     "/fact{factId}": {
       "get": {
         "tags": [
-          "tag1"
+          "get"
         ],
         "summary": "GET fact",
         "description": "Returns a fact",
         #externalDocs: (object),
-        "operationId": "getfact",
+        "operationId": "getfact_id",
         "parameters": [ {
           "name": "factId",
           "in": "path",
@@ -41,7 +41,72 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ok"
+                  "$ref": "#/components/schemas/OkGet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fact": {
+      "get": {
+        "tags": [
+          "get"
+        ],
+        "summary": "GET fact",
+        "description": "Returns a fact",
+        #externalDocs: (object),
+        "operationId": "getfact",
+        "parameters": [ {
+          "name": "factId",
+          "in": "query",
+          "description": "parametre in header",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        } ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OkGet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factCreate": {
+      "post": {
+        "tags": [
+          "post"
+        ],
+        "summary": "Create Fact",
+        "description": "Creating a fact",
+        #externalDocs: (object),
+        "operationId": "postfact",
+        "requestBody": {
+          "description": "Params in body request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OkGet"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OkGet"
                 }
               }
             }
@@ -52,7 +117,7 @@
   }
   "components": {
     "schemas": {
-      "Ok": {
+      "OkGet": {
         "type": "object",
         "properties": {
           "factId": {
