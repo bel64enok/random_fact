@@ -54,7 +54,8 @@ VALUES
 SELECT num.fact_number AS Число, typ.fact_type AS Тип, fac.fact AS Факт
 FROM facts AS fac
          INNER JOIN fact_types AS typ ON fac.fk_fact_type = typ.fact_id
-         INNER JOIN fact_numbers AS num ON fac.fk_fact_number = num.number_id;
+         INNER JOIN fact_numbers AS num ON fac.fk_fact_number = num.number_id
+WHERE typ.fact_type = 't_trivia';
 
 
 SELECT *
